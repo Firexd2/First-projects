@@ -1,0 +1,41 @@
+
+{% extends 'header.html' %}
+{% block content %}
+<link rel="prefetch prerender" href="http://www.beloglazov-projects.com/media/site/sticker.png" />
+<body>
+<div class="container">
+    <div class="row">
+
+            {% for post in posts %}
+                  <div onclick="location.href='{% url 'post' name_url=post.name_url %}';" class="col-sm-4">
+                 <div style="background-size: cover;" class="container-post">
+                    <div class="img-logo" style="background: url(media/{{ post.image_resize }}) center;">
+                        <div class="button-sticker"></div>
+                        <div class="category">
+                            {{ post.get_category_display }}
+                        </div></div>
+                     <div class="tittle">{{ post.tittle }}</div>
+                     <div class="info-date">{{ post.date }}</div>
+                     <div class="info-look"><span class='glyphicon glyphicon-eye-open' style='opacity: 0.8;'></span> {{ post.look }}</div>
+                 </div>
+                 </div>
+            {% endfor %}
+</div>
+</div>
+</body>
+<script>
+painting()
+
+$(function(){
+  $('.container-post').height($('.container-post').width()/0.99);
+
+  $(window).resize(function(){
+    $('.container-post').height($('.container-post').width()/0.99);
+  });
+});
+
+</script>
+
+
+
+{% endblock %}

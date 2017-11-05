@@ -1,0 +1,50 @@
+{% extends 'header.html' %}
+{% block content %}
+
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content">
+                <div class="tittle">Редактирование статьи</div>
+                <form method="POST" class="form_new_post" enctype="multipart/form-data">{% csrf_token %}
+
+                    <p class="margin">Название статьи:</p>
+                    {{ new_post_form.tittle }}
+
+                    <p class="margin">Назови URL для этой статьи:</p>
+                    {{ new_post_form.name_url }}
+
+                    <div class="block">
+                    <p class="margin">Выбери соответствующую категорию:</p>
+                    <div class="window">{{ new_post_form.category }}</div>
+                    </div>
+
+                    <div class="block">
+                    <p class="margin">Выбери фото для лого поста:</p>
+                    <div class="window">{{ new_post_form.logo }}</div>
+                    </div>
+
+                    <input type="hidden" name="name" value="{{ request.user.first_name }}">
+
+                    <div class="block">
+                    <p class="margin">Загрузка фотографий на сервер:</p>
+                     <button type="button" onclick="window.open('http://www.beloglazov-projects.com/blog/image')" class="btn btn-primary" style="width: 200px;">Открыть страницу загрузки</button>
+                    </div>
+
+                    <div>
+                    <p class="margin">Содержание статьи:</p>
+                    {{ new_post_form.text }}
+                    {{ new_post_form.media }}
+                    </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 200px; margin: 20px">Готово!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock %}

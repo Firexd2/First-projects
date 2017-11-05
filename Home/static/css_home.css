@@ -1,0 +1,180 @@
+body {
+  padding-top: 50px;
+}
+
+.background {
+  height: 100%;
+  font-size: 25px;
+  color: gainsboro;
+  text-shadow: 2px 2px 2px #161515;
+  cursor: pointer;
+  font-family: LUCIDA CONSOLE;
+
+}
+
+.tittle  {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.background:hover {
+  box-shadow: inset 0 0 0 15px black;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.blue {
+  background-color: blue;
+  background: linear-gradient(to bottom, blue, #5bc0de);
+}
+
+.purple {
+  background-color: rebeccapurple;
+  background: linear-gradient(to bottom, darkviolet, pink);
+}
+
+.darkorange {
+  background-color: darkorange;
+  background: linear-gradient(to bottom, darkorange, lightgoldenrodyellow);
+
+}
+.center {
+  display: table;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.center div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+/* цвет фона и рамки навигационного меню */
+.navbar-mu {
+    background-color: black;
+
+}
+/* цвет текста, содержащий название сайта или бренда */
+.navbar-mu .navbar-brand {
+    color: white;
+    font-family: LUCIDA CONSOLE;
+    font-weight: 600;
+}
+/* цвет текста (название сайта или бренда), при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-mu .navbar-brand:hover,
+.navbar-mu .navbar-brand:focus {
+    color: grey;
+}
+/* Цвет пунктов навигационного меню */
+.navbar-mu .navbar-nav > li > a {
+    color: gainsboro;
+    font-family: LUCIDA CONSOLE;
+}
+/* Цвет пункта меню, при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-mu .navbar-nav > li > a:hover,
+.navbar-mu .navbar-nav > li > a:focus {
+    color: grey;
+}
+/* Цвет и фон активного пункта меню, а также поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-mu .navbar-nav > .active > a,
+.navbar-mu .navbar-nav > .active > a:hover,
+.navbar-mu .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+/* Цвет и фон открытого пункта меню, а также поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-mu .navbar-nav > .open > a,
+.navbar-mu .navbar-nav > .open > a:hover,
+.navbar-mu .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+/* Цвет стрелочки (треугольничка) у раскрывающихся пунктов меню */
+.navbar-mu .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+/* Цвет стрелочки (треугольничка) при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-mu .navbar-nav > .dropdown > a:hover .caret,
+.navbar-mu .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+/* Цвет стрелочки (треугольничка), открывшегося пункта меню */
+.navbar-mu .navbar-nav > .open > a .caret,
+.navbar-mu .navbar-nav > .open > a:hover .caret,
+.navbar-mu .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* CSS стили для мобильных устройств */
+/* Цвет рамки у кнопки, которая открывает меню */
+.navbar-mu .navbar-toggle {
+    border-color: gray;
+}
+/* Цвет фона кнопки (которая открывает меню) при поднесении к ней курсора мышки или при нахождении её в фокусе */
+.navbar-mu .navbar-toggle:hover,
+.navbar-mu .navbar-toggle:focus {
+    background-color: darkgray;
+}
+/* Цвет полосочек в кнопочке, которая открывает меню */
+.navbar-mu .navbar-toggle .icon-bar {
+    background-color: #CCC;
+}
+
+@media (max-width: 767px) {
+/* Цвет пунктов меню в раскрывающихся списках */
+    .navbar-mu .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+/* Цвет и фон пункта меню в раскрывающихся списках, при поднесении к нему курсора мышки или при нахождении его в фокусе */
+    .navbar-mu .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-mu .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: gainsboro;
+    }
+}
+
+
+.navbar-toggle .icon-bar {
+  width: 22px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.navbar-toggle .icon-bar:nth-of-type(1) {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 10% 10%;
+  -ms-transform-origin: 10% 10%;
+  transform-origin: 10% 10%;
+}
+.navbar-toggle .icon-bar:nth-of-type(2) {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.navbar-toggle .icon-bar:nth-of-type(3) {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 10% 90%;
+  -ms-transform-origin: 10% 90%;
+  transform-origin: 10% 90%;
+}
+.navbar-toggle.collapsed .icon-bar:nth-of-type(1) {
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+.navbar-toggle.collapsed .icon-bar:nth-of-type(2) {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.navbar-toggle.collapsed .icon-bar:nth-of-type(3) {
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}

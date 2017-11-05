@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+
+body {
+    background-image: url('http://127.0.0.1:8000/media/site/fon.jpg');
+}
+
+.head-block{
+    height:100px;
+    background: white;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px black;
+}
+
+.date-category-post {
+    margin-bottom: 30px;
+    margin-left: 25px;
+    opacity: 0.7;
+}
+
+
+.content{
+    display:inline-block;
+    background: white;
+    border-radius: 5px;
+    height: auto;
+    min-width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px black;
+}
+
+.logo {
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.logo p {
+  display: table-cell;
+  vertical-align: middle;
+   font-size: 25px;
+   font-family: 'Ubuntu Condensed', sans-serif;
+   color: black;
+}
+
+/* цвет фона и рамки навигационного меню */
+.navbar-mu {
+    background-color: white;
+}
+
+/* цвет текста, содержащий название сайта или бренда */
+.navbar-mu .navbar-brand {
+    color: #131663;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    text-shadow: black 1px 1px;
+}
+/* цвет текста (название сайта или бренда), при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-mu .navbar-brand:hover,
+.navbar-mu .navbar-brand:focus {
+    color: black;
+}
+/* Цвет пунктов навигационного меню */
+.navbar-mu .navbar-nav > li > a {
+    color: rgba(0, 0, 0, 0.78);
+    font-family: 'Ubuntu Condensed', sans-serif;
+    margin-left: 30px;
+    font-size: 25px;
+}
+/* Цвет пункта меню, при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-mu .navbar-nav > li > a:hover,
+.navbar-mu .navbar-nav > li > a:focus {
+    color: black;
+    background-color: rgba(127, 117, 255, 0.22);
+    border-radius: 5px;
+}
+
+/* Цвет стрелочки (треугольничка) у раскрывающихся пунктов меню */
+.navbar-mu .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+/* Цвет стрелочки (треугольничка) при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-mu .navbar-nav > .dropdown > a:hover .caret,
+.navbar-mu .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+/* Цвет стрелочки (треугольничка), открывшегося пункта меню */
+.navbar-mu .navbar-nav > .open > a .caret,
+.navbar-mu .navbar-nav > .open > a:hover .caret,
+.navbar-mu .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* CSS стили для мобильных устройств */
+/* Цвет рамки у кнопки, которая открывает меню */
+.navbar-mu .navbar-toggle {
+    border-color: black;
+}
+/* Цвет фона кнопки (которая открывает меню) при поднесении к ней курсора мышки или при нахождении её в фокусе */
+.navbar-mu .navbar-toggle:hover,
+.navbar-mu .navbar-toggle:focus {
+    background-color: rgba(127, 117, 255, 0.22);
+}
+/* Цвет полосочек в кнопочке, которая открывает меню */
+.navbar-mu .navbar-toggle .icon-bar {
+    background-color: #000000;
+}
+
+@media (max-width: 767px) {
+/* Цвет пунктов меню в раскрывающихся списках */
+    .navbar-mu .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+/* Цвет и фон пункта меню в раскрывающихся списках, при поднесении к нему курсора мышки или при нахождении его в фокусе */
+    .navbar-mu .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-mu .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: gainsboro;
+    }
+
+    .nav {
+        position: inherit;
+    }
+    .navbar-mu .navbar-brand {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+   .navbar-mu .navbar-brand {
+        font-size: 15px;
+    }
+}
+
+.navbar-toggle .icon-bar {
+  width: 22px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.navbar-toggle .icon-bar:nth-of-type(1) {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 10% 10%;
+  -ms-transform-origin: 10% 10%;
+  transform-origin: 10% 10%;
+}
+.navbar-toggle .icon-bar:nth-of-type(2) {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.navbar-toggle .icon-bar:nth-of-type(3) {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 10% 90%;
+  -ms-transform-origin: 10% 90%;
+  transform-origin: 10% 90%;
+}
+.navbar-toggle.collapsed .icon-bar:nth-of-type(1) {
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+.navbar-toggle.collapsed .icon-bar:nth-of-type(2) {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.navbar-toggle.collapsed .icon-bar:nth-of-type(3) {
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+
+
+.container-post {
+    cursor: pointer;
+    margin-bottom: 28px;
+    text-align: left;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    height: 400px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px black;
+    background-color: white;
+    word-wrap: break-word;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-transition: all 0.3s ease;;
+    -moz-transition: all 0.3s ease;;
+    -o-transition: all 0.3s ease;;
+    transition: all 0.3s ease;
+}
+
+.container-post:hover {
+    box-shadow: 0 0 30px white;
+}
+
+.tittle {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.info {
+    font-size: 18px;
+    opacity: 0.8;
+    position: absolute;
+    top: 340px;
+    left: 35px
+}
+
+
+.img-logo {
+    height: 200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.img-post {
+    display: block;
+    max-width: 85%;
+    height: auto;
+    margin-left: 25px;
+}
+
+
+.category {
+    position: absolute;
+    right: 33px;
+    top: 11px;
+    color: white;
+    padding: 5px;
+    font-size: 15px;
+    background-color: #131663;
+    border-radius: 5px;
+    text-shadow: 1px 1px 1px black;
+
+    box-shadow: 2px 2px 1px black;
+}
+
+.text {
+    padding: 20px;
+}
+
+.form_new_post {
+    margin: 20px;
+    font-size: 20px;
+}
+
+input[type="text"] {
+   border: 1px solid grey;
+   border-radius: 3px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   background: #ffffff !important;
+   outline: none;
+   height: 34px;
+   width: 420px;
+   color: black;
+   font-size: 17px;
+   font-family: Tahoma;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+input[type="text"]:focus {
+  color: #000000;
+  border: 1px solid blue;
+}
+
+.block {
+    margin-bottom: 40px;
+}
+
+.window {
+    font-size: 15px;
+    font-style: italic;
+    border-radius: 5px;
+}

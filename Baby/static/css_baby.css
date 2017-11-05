@@ -1,0 +1,25 @@
+.btn {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 30px Purple inset, 0 0 0 0 #F137A6;
+    letter-spacing: 2px;
+    color: white;
+}
+
+body {
+    background-color: thistle
+}
+
+.purple {
+    color: purple
+}
+
+.info {
+    border: double fuchsia;
+    margin-bottom: 20px;
+    padding-top: 7px
+}

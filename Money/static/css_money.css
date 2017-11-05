@@ -1,0 +1,130 @@
+    hr {
+    border: none;
+    background-color: darkorange;
+    color: red;
+    height: 3px
+   }
+
+    body {
+       background-color: oldlace
+   }
+    .bold {
+       font-weight: bold;
+   }
+    .padding {
+        padding-bottom: 20px;
+    }
+    .history {
+        text-align: left;
+        font-size: 12px;
+        margin: 0;
+    }
+    .paddingmin {
+        padding-bottom: 7px;
+    }
+
+    .left {
+        text-align: left;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .font-size {
+        font-size: 16px;
+    }
+
+    .comment {
+        font-size: 10px;
+        font-style: italic;
+        opacity: 0.6;
+        padding-top: 10px;
+    }
+
+    .green {
+        color: lime;
+        font-weight: bold;
+        font-size: 17px;
+    }
+    .yellow {
+        color: gold;
+        font-weight: bold;
+        font-size: 17px;
+    }
+    .red {
+        color: red;
+        font-weight: bold;
+        font-size: 17px;
+    }
+
+    .amount {
+        color: black;
+        font-weight: bold;
+        font-size: 16px;
+    }
+     .form {
+        background-color: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 10px
+    }
+    .margin {
+        margin-left: 10px;
+        padding: 8px;
+    }
+
+
+        .text_history {
+        text-align: right;
+        padding-top: 12px;
+        border-bottom: 1px solid orange;
+    }
+    .text_number {
+        font-weight: bold;
+        text-align: center;
+        font-size: 18px;
+    }
+    .text_category {
+        font-size: 17px;
+        font-style: italic;
+    }
+    .month {
+        background-color: #777777;
+        height: 2px;
+        opacity: 0.5;
+    }
+    .action {
+        text-align: left;
+        padding-left: 15px;
+        padding-bottom: 3px;
+        font-style: italic;
+    }
+    .detail {
+        background-color: #dddddd;
+        border-radius: 5px;
+        padding: 1px;
+        margin: 13px;
+    }
+
+    .dategreen {
+        background-color: limegreen;
+        border-radius: 5px;
+        padding: 3px;
+        padding-bottom: 12px;
+        margin: 1px;
+    }
+     .datered {
+        background-color: red;
+        border-radius: 5px;
+        padding: 3px;
+        padding-bottom: 12px;
+        margin: 1px;
+    }
+    .dateyellow {
+        background-color: yellow;
+        border-radius: 5px;
+        padding: 3px;
+        padding-bottom: 12px;
+        margin: 1px;
+    }

@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<html lang="ru">
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="black">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'blog.css' %}">
+    <script src="{% static 'jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'bootstrap.js' %}"></script>
+    <script src="{% static 'npm.js' %}"></script>
+    <script src="{% static 'functions.js' %}"></script>
+    <title>Блог Белоглазова Дениса</title>
+</head>
+
+  <div class="container">
+<nav class="navbar navbar-mu" role="navigation" style="margin-top: 20px; border-radius: 5px; padding: 40px 10px 45px 10px;">
+
+ <div class="navbar-header">
+ <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+ <span class="sr-only">Toggle navigation</span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+
+ </button>
+<a class="navbar-brand" href="/blog">БелоБлог</a>
+ </div>
+
+
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <ul class="nav navbar-nav">
+
+ <li><a href="/blog/new_post">Создать новый пост</a></li>
+
+
+ <li><a href="#">О нас</a></li>
+
+     <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Сортировка по категориям <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'filter_to_category' category='programming' %}">Программирование</a></li>
+
+            <li><a href="{% url 'filter_to_category' category='life' %}">Жизнь</a></li>
+            <li><a href="{% url 'filter_to_category' category='baby' %}">Малыш</a></li>
+            <li><a href="{% url 'filter_to_category' category='ali' %}">Алиэкспресс</a></li>
+            <li><a href="{% url 'filter_to_category' category='thoughts' %}">Мысли</a></li>
+            <li><a href="{% url 'filter_to_category' category='recipes' %}">Рецепты</a></li>
+{#            <li role="separator" class="divider"></li>#}
+          </ul>
+        </li>
+ </ul>
+ </div>
+
+</nav>
+  </div>
+{% block content %}{% endblock %}
+</html>

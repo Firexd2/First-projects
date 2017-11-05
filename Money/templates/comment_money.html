@@ -1,0 +1,26 @@
+{% extends 'template_money.html' %}
+{% block content %}
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static 'css_money.css' %}">
+
+<body style="background-color: #161515">
+<div class="container center">
+    <div class="col-sm-4 col-sm-offset-4 form">
+<form method="POST" action="money/comment_money" id="comment">{% csrf_token %}
+    <div class="form-group">
+        <p style="font-size: 18px;">Введи свой комментарий к этой покупке:</p>
+{{ form.text }}
+    </div>
+</form>
+        <form action="/money" id="back"></form>
+        <button type="submit" class="btn btn-warning margin" form="comment">Записать</button>
+         <button type="submit" class="btn btn-warning margin" form="back">Вернуться</button>
+
+</div>
+</div>
+
+</body>
+
+
+{% endblock content %}

@@ -1,0 +1,262 @@
+{% extends 'template_money.html' %}
+{% block content %}
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static 'css_money.css' %}">
+
+<body>
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+
+            <h2><span class="glyphicon glyphicon-align-center"></span> Таблица учёта</h2>
+            <hr>
+
+     <form method="POST">{% csrf_token %}
+     <table class="table table-condensed table-striped">
+      <thead>
+
+    <tr>
+      <th><h4>Категория</h4></th>
+      <th><h4>Траты</h4></th>
+        <th><h4>Остаток</h4></th>
+      <th><h4>Форма</h4></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Малыш</th>
+      <td valign="bottom"><div class="amount">{{ one_cost }}/{{ one }}</div></td>
+        {% if one_procent < 60 %}
+        <td><div class="green">{{ one_diff }}</div></td>
+        {% elif one_procent < 75 %}
+        <td><div class="yellow">{{ one_diff }}</div></td>
+        {% else %}
+        <td><div class="red">{{ one_diff }}</div></td>
+        {% endif %}
+        <td>{{ form_cost.one_cost }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Удоволь.</th>
+      <td><div class="amount">{{ two_cost }}/{{ two }}</div></td>
+        {% if two_procent < 60 %}
+        <td><div class="green">{{ two_diff }}</div></td>
+        {% elif two_procent < 75 %}
+        <td><div class="yellow">{{ two_diff }}</div></td>
+        {% else %}
+        <td><div class="red">{{ two_diff }}</div></td>
+        {% endif %}
+        <td>{{ form_cost.two_cost }}</td>
+
+    </tr>
+    <tr>
+      <th scope="row">Необход.</th>
+      <td><div class="amount">{{ three_cost }}/{{ three }}</div></td>
+        {% if three_procent < 60 %}
+        <td><div class="green">{{ three_diff }}</div></td>
+        {% elif three_procent < 75 %}
+        <td><div class="yellow">{{ three_diff }}</div></td>
+        {% else %}
+        <td><div class="red">{{ three_diff }}</div></td>
+        {% endif %}
+        <td>{{ form_cost.three_cost }}</td>
+
+    </tr>
+        <tr>
+      <th scope="row">Остальные</th>
+      <td><div class="amount">{{ four_cost }}/{{ four }}</div></td>
+        {% if four_procent < 60 %}
+        <td><div class="green">{{ four_diff }}</div></td>
+        {% elif four_procent < 75 %}
+        <td><div class="yellow">{{ four_diff }}</div></td>
+        {% else %}
+        <td><div class="red">{{ four_diff }}</div></td>
+        {% endif %}
+        <td>{{ form_cost.four_cost }}</td>
+
+    </tr>
+    <tr>
+      <th scope="row">Бол. покупки</th>
+      <td><div class="amount">{{ five_cost }}/{{ five }}</div></td>
+        {% if five_procent < 60 %}
+        <td><div class="green">{{ five_diff }}</div></td>
+        {% elif five_procent < 75 %}
+        <td><div class="yellow">{{ five_diff }}</div></td>
+        {% else %}
+        <td><div class="red">{{ five_diff }}</div></td>
+        {% endif %}
+        <td>{{ form_cost.five_cost }}</td>
+
+    </tr>
+  <tr>
+      <th scope="row">Общ. сумма</th>
+      <td><div class="amount">{{ amount1_cost }}/{{ amount1 }}</div></td>
+        {% if amount1_procent < 60 %}
+        <td><div class="green">{{ amount1_diff }}</div></td>
+        {% elif amount1_procent < 75 %}
+        <td><div class="yellow">{{ amount1_diff }}</div></td>
+        {% else %}
+        <td><div class="red">{{ amount1_diff }}</div></td>
+        {% endif %}
+        <td><button type="submit" onclick="return confirm('Подтверждаешь ввод текущей траты?')" class="btn btn-warning">Ввод</button></td>
+
+    </tr>
+  </tbody>
+</table>
+</form>
+              <h2><span class="glyphicon glyphicon-usd"></span> Бюджет на неделю</h2>
+            <hr>
+
+            <div class="row padding">
+                <div class="col-xs-6 left"><h4>Категория</h4></div>
+                <div class="col-xs-3"><h4>Остаток</h4></div>
+                <div class="col-xs-3"><h4>Процент</h4></div>
+
+            </div>
+            <div class="row paddingmin font-size">
+                <div class="col-xs-6 italic left">Малыш</div>
+                {% if one_week_procent > 40 %}
+                <div class="col-xs-3 green">{{ one_week_diff }}</div>
+                {% elif one_week_procent > 10 %}
+                <div class="col-xs-3 yellow">{{ one_week_diff }}</div>
+                {% else %}
+                <div class="col-xs-3 red">{{ one_week_diff }}</div>
+                {% endif %}
+                <div class="col-xs-3 amount">{{ one_week_procent }} %</div>
+
+            </div>
+            <div class="row paddingmin font-size">
+                <div class="col-xs-6 italic left">Удовольствия</div>
+                {% if two_week_procent > 40 %}
+                <div class="col-xs-3 green">{{ two_week_diff }}</div>
+                {% elif two_week_procent > 10 %}
+                <div class="col-xs-3 yellow">{{ two_week_diff }}</div>
+                {% else %}
+                <div class="col-xs-3 red">{{ two_week_diff }}</div>
+                {% endif %}
+                <div class="col-xs-3 amount">{{ two_week_procent }} %</div>
+            </div>
+            <div class="row paddingmin font-size">
+                <div class="col-xs-6 italic left">Необходимые</div>
+                {% if three_week_procent > 40 %}
+                <div class="col-xs-3 green">{{ three_week_diff }}</div>
+                {% elif three_week_procent > 10 %}
+                <div class="col-xs-3 yellow">{{ three_week_diff }}</div>
+                {% else %}
+                <div class="col-xs-3 red">{{ three_week_diff }}</div>
+                {% endif %}
+                <div class="col-xs-3 amount">{{ three_week_procent }} %</div>
+            </div>
+            <div class="row paddingmin font-size">
+                <div class="col-xs-6 italic left">Остальные</div>
+                {% if four_week_procent > 40 %}
+                <div class="col-xs-3 green">{{ four_week_diff }}</div>
+                {% elif four_week_procent > 10 %}
+                <div class="col-xs-3 yellow">{{ four_week_diff }}</div>
+                {% else %}
+                <div class="col-xs-3 red">{{ four_week_diff }}</div>
+                {% endif %}
+                <div class="col-xs-3 amount">{{ four_week_procent }} %</div>
+            </div>
+            <!--<div class="row paddingmin font-size">-->
+            <!--    <div class="col-xs-6 italic left">Большие покупки</div>-->
+            <!--    {% if five_week_procent > 40 %}-->
+            <!--    <div class="col-xs-3 font-size green">{{ five_week_diff }}</div>-->
+            <!--    {% elif five_week_procent > 10 %}-->
+            <!--    <div class="col-xs-3 font-size yellow">{{ five_week_diff }}</div>-->
+            <!--    {% else %}-->
+            <!--    <div class="col-xs-3 font-size red">{{ five_week_diff }}</div>-->
+            <!--    {% endif %}-->
+            <!--    <div class="col-xs-3 amount">{{ five_week_procent }} %</div>-->
+            <!--</div>-->
+            <div class="row paddingmin font-size">
+                <div class="col-xs-6 italic left">Общая</div>
+                {% if amount1_week_procent > 40 %}
+                <div class="col-xs-3 green">{{ amount1_week_diff }}</div>
+                {% elif amount1_week_procent > 10 %}
+                <div class="col-xs-3 yellow">{{ amount1_week_diff }}</div>
+                {% else %}
+                <div class="col-xs-3 red">{{ amount1_week_diff }}</div>
+                {% endif %}
+                <div class="col-xs-3 amount">{{ amount1_week_procent }} %</div>
+            </div>
+                <div class="left comment">
+                    <p>*Для распределения бюджета на целый месяц, неделя считается как 8 дней. <br> **Категория "большие покупки" здесь не учитывается.</p>
+                </div>
+
+
+
+
+            <h2><span class="glyphicon glyphicon-pencil"></span> Управление</h2>
+
+            <hr>
+
+            <div class="row padding">
+                <div class="col-xs-3">
+                    <h4>Название</h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4>Текущее</h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4>Поле</h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4>Кнопка</h4>
+                </div>
+            </div>
+            <div class="row padding">
+                <div class="col-xs-3 bold">
+                    Внести ЗП
+                </div>
+                <div class="col-xs-3">
+                    {{ amount1 }}
+                </div>
+                <div class="col-xs-3">
+                    <form method="POST" id="month">{% csrf_token %}{{ form_money.amount }}</form>
+                </div>
+                <div class="col-xs-3">
+                    <button type="submit" form="month" onclick="return confirm('Подтверждаешь ввод зарплаты и обнуление трат?')" class="btn btn-warning">Ок</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3 bold">
+                    Править банк
+                </div>
+                <div class="col-xs-3">
+                    {{ bank }}
+                </div>
+                <div class="col-xs-3">
+                    <form method="POST" id="bank">{% csrf_token %}{{ form_create_bank.bank }}</form>
+                </div>
+                <div class="col-xs-3">
+                    <button type="submit" form="bank" onclick="return confirm('Подтверждаешь корректировку банка?')" class="btn btn-warning">Ок</button>
+                </div>
+            </div>
+
+            <h2><span class="glyphicon glyphicon-time"></span> Последние события</h2>
+
+            <hr>
+            {% for date, text in action %}
+            <div class="row padding">
+
+                <p class="history"><b>{{ date }}</b> <br> {{ text }}</p>
+            </div>
+            {% endfor %}
+ <div class="row padding">
+            <form action="money/history_costs" method="POST">{% csrf_token %}
+            <button type="submit" class="btn btn-warning">Помесячная история трат</button>
+            </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+
+
+{% endblock content %}
