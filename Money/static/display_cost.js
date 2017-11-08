@@ -6,7 +6,7 @@ function cost(){
         amount_cost += +$('#cost' + i).val()
     }
 
-    return confirm('Ты подтверждаешь ввод траты на сумму ' + amount_cost + '?');
+    return confirm('Ты подтверждаешь ввод траты на сумму ' + amount_cost + ' рублей?');
 }
 $(function() {
    $('#cost').on('click', cost);
