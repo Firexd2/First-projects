@@ -9,7 +9,7 @@
             <div class="content">
                 <div class="tittle">Добавление новой статьи</div>
                 <form method="POST" class="form_new_post" enctype="multipart/form-data">{% csrf_token %}
-
+                    <input id="urls" type="hidden" value="{{ name_urls_for_validate }}">
                     <p class="margin">Название статьи:</p>
                     {{ new_post_form.tittle }}
 
@@ -39,7 +39,7 @@
                     {{ new_post_form.media }}
                     </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 200px; margin: 20px">Готово!</button>
+                <button type="submit" id="disabledButton" class="btn btn-primary" style="width: 200px; margin: 20px" disabled>Готово!</button>
                 </form>
             </div>
         </div>

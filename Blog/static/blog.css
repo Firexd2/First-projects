@@ -294,7 +294,7 @@ body {
     font-size: 20px;
 }
 
-input[type="text"] {
+.input {
    border: 1px solid grey;
    border-radius: 3px;
    -webkit-border-radius: 3px;
@@ -311,7 +311,7 @@ input[type="text"] {
     margin-bottom: 40px;
 }
 
-input[type="text"]:focus {
+.input:focus {
   color: #000000;
   border: 1px solid #6B0009;
 }
@@ -342,4 +342,13 @@ input[type="text"]:focus {
     border-radius: 4px;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     white-space: pre-wrap;
+}
+
+.errorform {
+    color: #ff0a00;
+    border: 1px solid #ff0800;
+}
+
+.not_errorform {
+    border: 1px solid #2eff06;
 }

@@ -1,8 +1,8 @@
+import os
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 import datetime
 from .forms import *
-import sys
 
 def blog_home(request):
     posts = Post.objects.all()[::-1]
@@ -19,6 +19,7 @@ def post(request, name_url):
 
 @login_required
 def new_post(request):
+    name_urls_for_validate = (',').join([post[2] for post in Post.objects.values_list()])
     new_post_form = NewPost(request.POST or None)
     if request.POST:
         new_post_form = NewPost(request.POST, request.FILES)
