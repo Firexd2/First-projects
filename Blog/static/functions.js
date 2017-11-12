@@ -1,31 +1,31 @@
-$(document).ready(function(){
+$(document).ready(function(){ // начать выполнение функции после загрузки документа
 
-    var urls = $('#urls').val().split(',');
+    var urls = $('#urls').val().split(','); // получение данных о ранее созданных имён URL с сервера и создание массивах данных из строки
     var len = urls.length;
 
-    $('#url_name, #tittle' ).blur(function () {
+    $('#url_name, #tittle' ).blur(function () { // функция обработки события после потери фокуса наших полей
 
-        var id = $(this).attr('id');
-        var element = $(this).val();
+        var id = $(this).attr('id'); // данная конструкция поочередно переберет наши поля и получит с них необходимые данные
+        var element = $(this).val(); // получение значения ввода пользователем
 
         switch(id) {
-            case 'url_name':
-                $('#warningUrl').remove();
-                for (var i=0; i < len; i++) {
-                if ((element === urls[i]) || (element.length === 0))  {
-                    $(this).removeClass('not_errorform').addClass('errorform');
+            case 'url_name': // поле имя URL
+                $('#warningUrl').remove(); // так как для отображения ошибки я добавляю определенный текст в HTML, при повторной потери фокуса
+                for (var i=0; i < len; i++) { // необходимо удалять предыдущую ошибку, иначе получится целый список устаревших данных
+                if ((element === urls[i]) || (element.length === 0))  { // если веденный url встречается в БД, либо ничего не введено
+                    $(this).removeClass('not_errorform').addClass('errorform'); // добавляем нашему полю класс 'ошибки'. Оно подсветится красным
                     if (element.length > 0) {
-                        $(this).before('<p id="warningUrl" style="color:red;"> Это название для URL уже существует</p>');
+                        $(this).before('<p id="warningUrl" style="color:red;"> Это название для URL уже существует</p>'); // добавляем текст ошибки
                     } else {
-                        $(this).before('<p id="warningUrl" style="color:red;"> Поле не может быть пустым</p>');
+                        $(this).before('<p id="warningUrl" style="color:red;"> Поле не может быть пустым</p>'); // текст ошибки, если поле пустое
                     }
                     break
                     }
-                $(this).removeClass('errorform').addClass('not_errorform');
+                $(this).removeClass('errorform').addClass('not_errorform'); // соотвественно, если совпадений нету, добавляем класс "нет ошибки". Поле будет зеленным!
                 }
             break;
 
-            case 'tittle':
+            case 'tittle': // обработка другого поля по аналогичному методу, только данные из БД здесь не нужны
                 $('#warningTittle').remove();
                 if (element.length > 0) {
                     $(this).removeClass('errorform').addClass('not_errorform');
@@ -36,17 +36,17 @@ $(document).ready(function(){
              break;
         }
 
-        if ($('.not_errorform').length === 2) {
-            $('#disabledButton').attr('disabled', false)
+        if ($('.not_errorform').length === 2) {  // если на нашей странице есть два элемента с классом not_errorform
+            $('#disabledButton').attr('disabled', false) // делаем нашу кнопку активной
         } else {
-            $('#disabledButton').attr('disabled', true)
+            $('#disabledButton').attr('disabled', true) // иначе оставляем все как есть
         }
         
     });
 
 });
 
-function painting(){
+function painting(){ // первое знакомство с JavaScripts. Функция раскраски таблички "категория"
     var category = document.getElementsByClassName('category');
     var len = category.length;
     var content = document.getElementsByClassName('container-post');
