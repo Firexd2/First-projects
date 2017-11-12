@@ -9,7 +9,7 @@
             {% for post in posts %}
                   <div onclick="location.href='{% url 'post' name_url=post.name_url %}';" class="col-sm-4">
                  <div style="background-size: cover;" class="container-post">
-                    <div class="img-logo" style="background: url(www.beloglazov-projects.com/media/{{ post.image_resize }}) center;">
+                    <div class="img-logo" style="background: url(http://www.beloglazov-projects.com/media/{{ post.image_resize }}) center;">
                         <div class="button-sticker"></div>
                         <div class="category">
                             {{ post.get_category_display }}
