@@ -3,19 +3,21 @@ from Baby.forms import EatForm, WeightForm
 from Baby.models import HistoryEat, BabyEat, BabyWeight
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
+import re
+
 
 @login_required
 def home_baby(request):
     Eat = [(str(x).split(","))[:-1] for x in BabyEat.objects.all()]
     total_volume = 0
     for n, item in enumerate(Eat):
-        if Eat[n][2] == ' True': Eat[n][2] = '+'
-        if Eat[n][2] == ' False': Eat[n][2] = '-'
-        total_volume += int(item[1])
+        if Eat[n][4] == ' True': Eat[n][4] = '+'
+        if Eat[n][4] == ' False': Eat[n][4] = '-'
+        total_volume += (int(item[1]) + int(item[2]) + int(item[3]))
 
     if Eat:
         now_time = str(datetime.now())[11:16].split(':')
-        last_time = Eat[-1][0].split(':')
+        last_time = re.split(':|-', Eat[-1][0])
         now_min = int(now_time[0]) * 60 + int(now_time[1])
         last_min = int(last_time[0]) * 60 + int(last_time[1]) if int(last_time[0]) <= int(now_time[0]) else int(last_time[0]) * 60 + int(last_time[1]) - 1440
         time_to_eat = [(now_min - last_min) // 60, (now_min - last_min) % 60]

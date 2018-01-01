@@ -1,86 +1,99 @@
 {% extends 'template_baby.html' %}
 {% block content %}
-{% load staticfiles %}
-<link rel="stylesheet" href="{% static 'css_baby.css' %}">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css_baby.css' %}">
 
-<body>
+    <body>
 
-<div class="container">
-<article class="panel panel-default col-md-6 col-md-offset-3">
-<div class="panel-heading purple">
-<h2 class="panel-title">Электронный блокнот питания Максима</h2>
-</div>
-<div class="table-responsive">
-<table class="table">
-<thead>
-<tr>
-<th>Время</th>
-<th>Объем</th>
-<th>Туалет</th>
-</tr>
-</thead>
-<tbody>
-{% for item in Eat %}
-    <tr>
-    {% for x in item %}
-        <td>{{ x }}</td>
-        {% endfor %}
-    </tr>
-    {% endfor %}
-</tbody>
-</table>
-</div>
-
-</article>
-    </div>
-<div class="container text-center">
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="info">
-        <p>С последнего кормления прошло <b>{{ hours_time }}:{{ min_time }}</b></p>
-<p>Текущий объем: <b>{{ total_volume }}</b> мл.</p>
-<p>Время предполагаемого кормления: <b>{{ houts_time_anticipated }}:{{ min_time_anticipated }}</b></p>
+    <div class="container">
+        <article class="panel panel-default col-md-6 col-md-offset-3">
+            <div class="panel-heading purple">
+                <h2 class="panel-title">Электронный блокнот питания Максима</h2>
             </div>
-<form method="POST" class="form-inline">{% csrf_token %}
-  <div class="form-group">
-    {{ form.time }}
-  </div>
-  <div class="form-group">
-  {{ form.volume }}
-  </div>
-  <div class="checkbox">
-    <label>{{ form.toilet }} Туалет</label>
-  </div>
-    <div class="form-group">
-  {{ form.data }}
-  </div>
-  <button type="submit" class="btn">Записать</button>
-</form>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Время</th>
+                        <th>Объем (смесь)</th>
+                        <th>Объем (каша)</th>
+                        <th>Объем (пюре)</th>
+                        <th>Туалет</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in Eat %}
+                        <tr>
+                            {% for x in item %}
+                                <td>{{ x }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </article>
+    </div>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="info">
+                    <p>С последнего кормления прошло <b>{{ hours_time }}:{{ min_time }}</b></p>
+                    <p>Текущий объем: <b>{{ total_volume }}</b> мл.</p>
+                    <p>Время предполагаемого кормления: <b>{{ houts_time_anticipated }}:{{ min_time_anticipated }}</b></p>
+                </div>
+                <form method="POST" class="form-inline">{% csrf_token %}
+                    <div class="form-group">
+                        <p><b>Время:</b></p>
+                        {{ form.time }}
+                    </div>
+                    <div class="form-group">
+                        <p><b>Смесь:</b></p>
+                        {{ form.volume_mixture }}
+                    </div>
+                    <div class="form-group">
+                        <p><b>Каша:</b></p>
+                        {{ form.volume_porridge }}
+                    </div>
+                    <div class="form-group">
+                        <p><b>Пюре:</b></p>
+                        {{ form.volume_puree }}
+                    </div>
+                    <div class="checkbox">
+                        <p><b>Туалет:</b></p>
+                        {{ form.toilet }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.data }}
+                    </div>
+                    <button style="margin-top: 35px" type="submit" class="btn">Записать</button>
+                </form>
 
 
-        <div class="col-md-3">
-<form action="baby/delit" method="POST">{% csrf_token %}
-            <button type="submit" class="btn" onclick="return confirm('Точно удалить запись?')">Удаление</button>
-</form>
+                <div class="col-md-3">
+                    <form action="baby/delit" method="POST">{% csrf_token %}
+                        <button type="submit" class="btn" onclick="return confirm('Точно удалить запись?')">Удаление</button>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <form action="baby/up_history" method="POST">{% csrf_token %}
+                        <button type="submit" class="btn" onclick="return confirm('Сохранить в историю?')">Сохранить</button>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <form action="baby/history" method="POST">{% csrf_token %}
+                        <button type="submit" class="btn">История</button>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <form action="baby/history_weight" method="POST">{% csrf_token %}
+                        <button type="submit" class="btn">Развитие</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3">
-<form action="baby/up_history" method="POST">{% csrf_token %}
-            <button type="submit" class="btn" onclick="return confirm('Сохранить в историю?')">Сохранить</button>
-</form>
-            </div>
-            <div class="col-md-3">
-<form action="baby/history" method="POST">{% csrf_token %}
-            <button type="submit" class="btn">История</button>
-</form>
- </div>
-                    <div class="col-md-3">
-<form action="baby/history_weight" method="POST">{% csrf_token %}
-            <button type="submit" class="btn">Развитие</button>
-</form>
- </div>
-</div>
-</div>
     </div>
 
-</body>
+    </body>
 {% endblock content %}

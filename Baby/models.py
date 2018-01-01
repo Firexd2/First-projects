@@ -2,12 +2,15 @@ from django.db import models
 
 class BabyEat(models.Model):
     time = models.CharField(max_length=5)
-    volume = models.IntegerField()
+    volume_mixture = models.IntegerField(default=0, null=True, blank=True)
+    volume_porridge = models.IntegerField(default=0, null=True, blank=True)
+    volume_puree = models.IntegerField(default=0, null=True, blank=True)
     data = models.CharField(max_length=10)
     toilet = models.BooleanField(default=False)
 
+
     def __str__(self):
-        return '%s, %s, %s, %s' % (self.time, self.volume, self.toilet, self.data)
+        return '%s, %s, %s, %s, %s, %s' % (self.time, self.volume_mixture, self.volume_porridge, self.volume_puree, self.toilet, self.data)
 
     class Meta:
         verbose_name = 'Таблица питания'
