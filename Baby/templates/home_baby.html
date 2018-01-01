@@ -15,9 +15,9 @@
                     <thead>
                     <tr>
                         <th>Время</th>
-                        <th>Объем (смесь)</th>
-                        <th>Объем (каша)</th>
-                        <th>Объем (пюре)</th>
+                        <th>Объем</th>
+                        <th>Объем</th>
+                        <th>Объем</th>
                         <th>Туалет</th>
                     </tr>
                     </thead>
@@ -44,30 +44,50 @@
                     <p>Время предполагаемого кормления: <b>{{ houts_time_anticipated }}:{{ min_time_anticipated }}</b></p>
                 </div>
                 <form method="POST" class="form-inline">{% csrf_token %}
+                <div class="container">
+                    <div class="row">
+                                             <div class="col-xs-12">
                     <div class="form-group">
                         <p><b>Время:</b></p>
                         {{ form.time }}
                     </div>
+                     </div>
+
+                     <div class="col-xs-4">
                     <div class="form-group">
                         <p><b>Смесь:</b></p>
                         {{ form.volume_mixture }}
                     </div>
+                    </div>
+                    <div class="col-xs-4">
                     <div class="form-group">
                         <p><b>Каша:</b></p>
                         {{ form.volume_porridge }}
                     </div>
+                    </div>
+                    <div class="col-xs-4">
                     <div class="form-group">
                         <p><b>Пюре:</b></p>
                         {{ form.volume_puree }}
                     </div>
+                    </div>
+
+                    <div style='margin-bottom: 30px' class="col-xs-12">
                     <div class="checkbox">
                         <p><b>Туалет:</b></p>
                         {{ form.toilet }}
                     </div>
+                    </div>
+                    <div class="col-xs-4">
                     <div class="form-group">
                         {{ form.data }}
                     </div>
-                    <button style="margin-top: 35px" type="submit" class="btn">Записать</button>
+                    </div>
+                    <div class="col-xs-12">
+                    <button style='margin-bottom: 10px' type="submit" class="btn">Внести</button>
+                    </div>
+                                        </div>
+                </div>
                 </form>
 
 
