@@ -15,7 +15,6 @@ class EatForm(forms.ModelForm):
             'volume_mixture': TextInput(attrs={'class': "form-control", 'size': '4'}),
             'volume_porridge': TextInput(attrs={'class': "form-control", 'size': '4'}),
             'volume_puree': TextInput(attrs={'class': "form-control", 'size': '4'})
-
         }
 
 class WeightForm(forms.ModelForm):
