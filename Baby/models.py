@@ -8,6 +8,16 @@ class BabyEat(models.Model):
     data = models.CharField(max_length=10)
     toilet = models.BooleanField(default=False)
 
+    def save(self, *args, **kwargs):
+
+        if not self.volume_mixture:
+            self.volume_mixture = 0
+        if not self.volume_porridge:
+            self.volume_porridge = 0
+        if not self.volume_puree:
+            self.volume_puree = 0
+
+        super(BabyEat, self).save(*args, **kwargs)
 
     def __str__(self):
         return '%s, %s, %s, %s, %s, %s' % (self.time, self.volume_mixture, self.volume_porridge, self.volume_puree, self.toilet, self.data)
